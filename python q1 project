@@ -1,0 +1,154 @@
+stats = {
+    "money": 100000000,
+}
+
+store = {
+   
+
+
+
+   "normal_car": 24000,
+    "truck": 47000,
+    "van":40000,
+    "bus":95000,
+    "monster_truck": 243671,
+    "motorcycle": 45971,
+    "bike": 150,
+    "yacht": 35000000,
+    "jetski":15000, 
+    "boat":45000,
+
+    "1_story_house": 225839,
+    "2_story_house": 359748,
+    "3_story_house": 754642,
+    "small_mansion": 1489653,
+    "medium_mansion": 4789250,
+    "huge_mansion": 10641951,
+
+
+ "movie_theader":50000,
+    "sauna":10000,
+    "in_ground_pool":75000,
+    "outside_pool":10000,
+    "fish_tank":50000,
+    "bird_cage":120,
+    "pool_table":985,
+    "foosball":220,
+    "chandelier":250000,
+    "grill":3000,    
+    "painting": 45,
+
+
+
+    "maid": 280,
+    "chef": 125,
+    "butler": 95000,
+
+
+    "dog": 1625,
+    "cat": 3621,
+    "hamster": 2321,
+    "snake": 870,
+    "lizard": 130,
+    "bird": 725,
+
+
+
+  
+   
+
+    "phone": 1500,
+    "ps5": 761,
+    "xbox": 363,
+    "xbox1": 521,
+    "ps4": 320,
+    "pc": 2560,
+    "island": 1350871,
+    "private_plane": 45294491
+   
+ 
+}
+
+def buy_item(item_name):
+    cost = store[item_name]
+    if stats["money"] >= cost:
+        stats["money"] -= cost
+        print(f"You bought {item_name.replace('_', ' ')} for ${cost:,}!")
+    else:
+        print("You don’t have enough money for that!")
+    print(f"Money left: ${stats['money']:,}\n")
+
+
+print("Hello! You’ve won $100,000,000 — spend it wisely!")
+while True:
+    print("\n--- Main Menu ---")
+    print(f"You have ${stats['money']:,} left.")
+    print("0. Exit")
+    print("1. Buy transportation")
+    print("2. Buy a house")
+    print("3. Buy house add-ons")
+    print("4. Hire a service")
+    print("5. Buy a pet")  
+    print("6. Buy a gaming console")
+   
+    
+    
+
+    
+    choice = input("Enter a number: ")
+
+    if choice == "0":
+        print("Thanks for playing! Goodbye.")
+        break
+
+    if choice == "1":
+     print("\n-- Transportation --")
+    items = ["normal_car","truck","motorcycle","monster_truck","bike","yacht","private_plane","jetski","van","bus","boat"]
+    times =0
+    for item in items: 
+         print(f"{times+1}. {items[times]}: ${store[items[times]]}")
+         times+=1
+            
+    money_taken =  input ("input a number plz")
+
+    if input == money_taken:
+       
+    
+
+
+    
+    if choice == "2":
+     print("\n-- Home --")
+     items = ["1_story_house","2_story_house", "3_story_house","small_mansion","medium_mansion","huge_mansion"]
+     times =0
+     for item in items: 
+         print(f"{times+1}. {items[times]}: ${store[items[times]]}")
+         times+=1
+            
+
+
+    if choice == "3":
+     print("\n--House add-ons --")
+     items = ["movie_theader","sauna","in_ground_pool","outside_pool","fish_tank","bird_cage","pool_table","foosball","chandelier","grill","painting"]
+     times =0
+     for item in items: 
+         print(f"{times+1}. {items[times]}: ${store[items[times]]}")
+         times+=1
+            
+
+    if choice == "4":
+        print("\n-- Hire a service --")
+        items = ["maid","chef", "butler"]
+        times =0
+        for item in items: 
+            print(f"{times+1}. {items[times]}: ${store[items[times]]}")
+            times+=1
+    
+    if choice == "5":
+        print("\n-- Hire a service --")
+        items = ["dog" , "cat": ,"hamster" ,"snake": ,"lizard" ,"bird"]
+        times =0
+        for item in items: 
+            print(f"{times+1}. {items[times]}: ${store[items[times]]}")
+            times+=1
+    
