@@ -3,71 +3,131 @@ stats = {
 }
 
 store = {
-   
-
-
-
-   "normal_car": 24000,
-    "truck": 47000,
-    "van":40000,
-    "bus":95000,
+    # vehicles
+    "normal_car": 24461,
+    "truck": 47513,
+    "van": 47584,
+    "bus": 95193,
     "monster_truck": 243671,
     "motorcycle": 45971,
     "bike": 150,
-    "yacht": 35000000,
-    "jetski":15000, 
-    "boat":45000,
+    "yacht": 35484312,
+    "jetski": 15815, 
+    "boat": 45931,
+    "private_plane": 45294491,
+    "helicopter": 2149714,
 
+    # homes
     "1_story_house": 225839,
     "2_story_house": 359748,
     "3_story_house": 754642,
     "small_mansion": 1489653,
     "medium_mansion": 4789250,
     "huge_mansion": 10641951,
+    "bunker":28704815,
+    "penthouse": 5467321,
 
-
- "movie_theader":50000,
-    "sauna":10000,
-    "in_ground_pool":75000,
-    "outside_pool":10000,
-    "fish_tank":50000,
-    "bird_cage":120,
-    "pool_table":985,
-    "foosball":220,
-    "chandelier":250000,
-    "grill":3000,    
+    # house add-ons
+    "movie_theader": 54761,
+    "sauna": 11463,
+    "in_ground_pool": 75832,
+    "outside_pool": 11582,
+    "fish_tank": 59751,
+    "bird_cage": 123,
+    "pool_table": 985,
+    "foosball": 226,
+    "chandelier": 257841,
+    "grill": 324,    
     "painting": 45,
+    "personal gyms":17500,
 
+    # services
+    "maid": 28327,
+    "chef": 25025,
+    "butler": 35742,
 
-
-    "maid": 280,
-    "chef": 125,
-    "butler": 95000,
-
-
+    # animals
     "dog": 1625,
     "cat": 3621,
     "hamster": 2321,
     "snake": 870,
     "lizard": 130,
     "bird": 725,
+    "parrot": 2500,
+    "turtle": 300,
+    "frog": 50,
+    "ferret": 450,
+    "rabbit": 150,
+    "guinea_pig": 80,
+    "fish": 30,
+    "betta_fish": 25,
+    "hedgehog": 300,
+    "chinchilla": 600,
+    "gerbil": 20,
+    "mouse": 15,
+    "rat": 45,
+    "hermit_crab": 20,
+    "tarantula": 100,
+    "gecko": 200,
+    "piglet_micro": 500,
 
 
-
-  
-   
-
+    # gaming
     "phone": 1500,
     "ps5": 761,
     "xbox": 363,
     "xbox1": 521,
     "ps4": 320,
     "pc": 2560,
+    
+    
+
+    #more
     "island": 1350871,
-    "private_plane": 45294491
-   
- 
+    "Lamborghini":1508351,
+    "Ferrari":2965115,
+    "Rolls-Royce":7002119,
+  
+    # Watches
+    "diamond_watch": 95000,
+    "gold_watch": 500000,
+    "silver_watch": 75000,
+    "emerald_watch": 1200000,
+
+    # Chains
+    "diamond_chain": 450000,
+    "gold_chain": 150000,
+    "silver_chain": 35000,
+    "emerald_chain": 250000,
+
+    # Rings
+    "diamond_ring": 120000,
+    "gold_ring": 35000,
+    "silver_ring": 10000,
+    "emerald_ring": 90000,
+
+    # Necklaces
+    "diamond_necklace": 500000,
+    "gold_necklace": 120000,
+    "silver_necklace": 30000,
+    "emerald_necklace": 400000,
+
+    # Bracelets
+    "diamond_bracelet": 200000,
+    "gold_bracelet": 80000,
+    "silver_bracelet": 20000,
+    "emerald_bracelet": 150000,
+
+    # Accessories / Misc
+    "designer_bag": 12000,
+    "luxury_sunglasses": 2500,
+    "silk_scarf": 1200,
+    "private_jet": 24500000,
+    "yacht": 35000000,
 }
+
+    
+
 
 def buy_item(item_name):
     cost = store[item_name]
@@ -78,8 +138,17 @@ def buy_item(item_name):
         print("You don’t have enough money for that!")
     print(f"Money left: ${stats['money']:,}\n")
 
+def show_menu(items):
+    for i, item in enumerate(items, start=1):
+        print(f"{i}. {item.replace('_', ' ')}: ${store[item]:,}")
+    selection = input("Enter the number of the item you want to buy: ")
+    if selection.isdigit() and 1 <= int(selection) <= len(items):
+        buy_item(items[int(selection) - 1])
+    else:
+        print("Invalid choice. Please pick a valid number.")
 
 print("Hello! You’ve won $100,000,000 — spend it wisely!")
+
 while True:
     print("\n--- Main Menu ---")
     print(f"You have ${stats['money']:,} left.")
@@ -88,67 +157,58 @@ while True:
     print("2. Buy a house")
     print("3. Buy house add-ons")
     print("4. Hire a service")
-    print("5. Buy a pet")  
+    print("5. Buy a pet")
     print("6. Buy a gaming console")
-   
-    
-    
+    print("7. -other things to buy   ")
 
-    
     choice = input("Enter a number: ")
 
     if choice == "0":
-        print("Thanks for playing! Goodbye.")
+        print("Thanks for playing! bye")
         break
 
-    if choice == "1":
-     print("\n-- Transportation --")
-    items = ["normal_car","truck","motorcycle","monster_truck","bike","yacht","private_plane","jetski","van","bus","boat"]
-    times =0
-    for item in items: 
-         print(f"{times+1}. {items[times]}: ${store[items[times]]}")
-         times+=1
-            
-    money_taken =  input ("input a number plz")
+    elif choice == "1":
+        print("\n-- Transportation --")
+        items = ["normal_car", "truck", "motorcycle", "monster_truck", "bike", "yacht", "private_plane", "jetski", "van", "bus", "boat", "helicopter","Lamborghini", "Ferrari", "Rolls-Royce"]
+        show_menu(items)
 
-    if input == money_taken:
-       
+    elif choice == "2":
+        print("\n-- Homes --")
+        items = ["1_story_house", "2_story_house", "3_story_house", "small_mansion", "medium_mansion", "huge_mansion","bunker", "penthouse","island"]
+        show_menu(items)
+
+    elif choice == "3":
+        print("\n-- House Add-ons --")
+        items = ["movie_theader","sauna","in_ground_pool","outside_pool","fish_tank","bird_cage","pool_table","foosball","chandelier","grill","painting","personal gyms"]
+        show_menu(items)
+
+    elif choice == "4":
+        print("\n-- Services --")
+        items = ["maid", "chef", "butler"]
+        show_menu(items)
+
+    elif choice == "5":
+        print("\n-- Pets --")
+        items = ["dog", "cat", "hamster", "snake", "lizard", "bird","parrot","turtle","frog","ferret","rabbit","guinea_pig","fish","betta_fish","hedgehog", "chinchilla","gerbil","mouse","rat","hermit_crab","tarantula","gecko","piglet_micro" ]
+        show_menu(items)
+
+         
     
 
-
-    
-    if choice == "2":
-     print("\n-- Home --")
-     items = ["1_story_house","2_story_house", "3_story_house","small_mansion","medium_mansion","huge_mansion"]
-     times =0
-     for item in items: 
-         print(f"{times+1}. {items[times]}: ${store[items[times]]}")
-         times+=1
-            
+    elif choice == "6":
+        print("\n-- Gaming Consoles & Tech --")
+        items = ["phone", "ps5", "xbox", "xbox1", "ps4", "pc"]
+        show_menu(items)
 
 
-    if choice == "3":
-     print("\n--House add-ons --")
-     items = ["movie_theader","sauna","in_ground_pool","outside_pool","fish_tank","bird_cage","pool_table","foosball","chandelier","grill","painting"]
-     times =0
-     for item in items: 
-         print(f"{times+1}. {items[times]}: ${store[items[times]]}")
-         times+=1
-            
 
-    if choice == "4":
-        print("\n-- Hire a service --")
-        items = ["maid","chef", "butler"]
-        times =0
-        for item in items: 
-            print(f"{times+1}. {items[times]}: ${store[items[times]]}")
-            times+=1
-    
-    if choice == "5":
-        print("\n-- Hire a service --")
-        items = ["dog" , "cat": ,"hamster" ,"snake": ,"lizard" ,"bird"]
-        times =0
-        for item in items: 
-            print(f"{times+1}. {items[times]}: ${store[items[times]]}")
-            times+=1
-    
+    elif choice == "7":
+        print("\n-other things to buy ")
+        items = [ "diamond_watch", "gold_watch", "silver_watch", "emerald_watch", "diamond_chain" , "gold_chain","silver_chain","emerald_chain" , "diamond_ring",  "gold_ring", "silver_ring", "emerald_ring", "diamond_necklace" , "gold_necklace", "silver_necklace" , "emerald_necklace" , "diamond_bracelet", "gold_bracelet", "silver_bracelet" , "emerald_bracelet" , "designer_bag","luxury_sunglasses", "silk_scarf","private_jet", "yacht",]
+        show_menu(items)
+
+
+
+
+    else:
+        print("Invalid menu choice. Try again.")
